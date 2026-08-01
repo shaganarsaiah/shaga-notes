@@ -1,0 +1,29 @@
+:root{
+
+--primary:#0F4C81;
+--secondary:#00B894;
+
+--background:#F8FAFC;
+--card:#FFFFFF;
+
+--text:#1F2937;
+
+--border:#E5E7EB;
+
+--shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+body.dark{
+
+--background:#121212;
+
+--card:#1E1E1E;
+
+--text:#F5F5F5;
+
+--border:#333;
+
+--shadow:0 10px 25px rgba(0,0,0,.45);
+
+}
