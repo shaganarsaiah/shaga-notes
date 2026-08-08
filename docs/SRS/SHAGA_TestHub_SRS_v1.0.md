@@ -762,3 +762,425 @@ The Test Generator shall search questions.
 The Repository shall store questions.
 
 Each module shall perform only its assigned responsibility.
+---
+
+# Chapter 6
+# TEST GENERATOR Specification
+
+## 6.1 Purpose
+
+The Test Generator (TG) is responsible for creating customized examinations from the Question Bank Repository.
+
+It shall generate examinations without modifying the Question Bank.
+
+The generated examination shall be passed to the CBT Engine.
+
+---
+
+# 6.2 Objectives
+
+The Test Generator shall allow users to create
+
+• Subject-wise Tests
+
+• Topic-wise Tests
+
+• Sub-topic Tests
+
+• Mixed Subject Tests
+
+• Grand Tests
+
+• Previous Year Tests
+
+• Practice Tests
+
+• Custom Tests
+
+using the same Question Bank Repository.
+
+---
+
+# 6.3 General Workflow
+
+Question Bank Repository
+
+↓
+
+User Selection
+
+↓
+
+Filtering
+
+↓
+
+Validation
+
+↓
+
+Randomization
+
+↓
+
+Generated Test Package
+
+↓
+
+CBT Engine
+
+---
+
+# 6.4 Test Generation Wizard
+
+The Test Generator shall follow a step-by-step wizard.
+
+Step 1
+
+Select Examination
+
+↓
+
+Step 2
+
+Select Division
+
+↓
+
+Step 3
+
+Select Subject(s)
+
+↓
+
+Step 4
+
+Select Topic(s)
+
+↓
+
+Step 5
+
+Select Sub-topic(s)
+
+↓
+
+Step 6
+
+Select Difficulty
+
+↓
+
+Step 7
+
+Select Question Types
+
+↓
+
+Step 8
+
+Test Settings
+
+↓
+
+Step 9
+
+Randomization
+
+↓
+
+Step 10
+
+Preview Test Blueprint
+
+↓
+
+Generate Test
+
+---
+
+# 6.5 Step 1
+
+Select Examination
+
+Examples
+
+TGPSC Dy.E.O.
+
+DSC
+
+CTET
+
+SET
+
+UGC NET
+
+Custom Test
+
+The Test Generator shall load available Divisions based on the selected Examination.
+
+---
+
+# 6.6 Step 2
+
+Select Division
+
+Examples
+
+Paper I
+
+Paper II
+
+Section A
+
+Section B
+
+Future examination categories shall be supported without modifying the Generator.
+
+---
+
+# 6.7 Step 3
+
+Select Subject(s)
+
+Users may select
+
+One Subject
+
+or
+
+Multiple Subjects.
+
+Examples
+
+Educational Psychology
+
+Educational Philosophy
+
+Leadership
+
+Assessment
+
+Curriculum
+
+Current Affairs
+
+Multiple selections shall be supported.
+
+---
+
+# 6.8 Step 4
+
+Select Topic(s)
+
+The available Topics shall depend on the selected Subject(s).
+
+Example
+
+Educational Psychology
+
+↓
+
+Learning
+
+Motivation
+
+Memory
+
+Personality
+
+Adjustment
+
+---
+
+# 6.9 Step 5
+
+Select Sub-topic(s)
+
+Optional.
+
+Users may
+
+Select all
+
+or
+
+Select specific Sub-topics.
+
+---
+
+# 6.10 Step 6
+
+Difficulty Selection
+
+Supported Levels
+
+Easy
+
+Moderate
+
+Difficult
+
+The Test Generator shall allow any combination.
+
+Example
+
+20 Easy
+
+20 Moderate
+
+10 Difficult
+
+---
+
+# 6.11 Step 7
+
+Question Types
+
+Supported Types
+
+MCQ
+
+Multiple Correct
+
+Assertion–Reason
+
+True / False
+
+Match the Following
+
+Fill in the Blank
+
+Case Study
+
+Passage Based
+
+Image Based
+
+Diagram Based
+
+---
+
+# 6.12 Step 8
+
+Test Settings
+
+The user shall specify
+
+Number of Questions
+
+Time Limit
+
+Marks per Question
+
+Negative Marks
+
+Passing Percentage
+
+Instructions
+
+---
+
+# 6.13 Step 9
+
+Randomization
+
+The Test Generator shall support
+
+Random Questions
+
+Random Options
+
+Random Subject Order
+
+Random Topic Order
+
+Random Test every time
+
+---
+
+# 6.14 Step 10
+
+Test Blueprint
+
+Before generating the examination, the Test Generator shall display a complete blueprint.
+
+The blueprint shall contain
+
+Examination
+
+Division
+
+Subjects
+
+Topics
+
+Sub-topics
+
+Difficulty Distribution
+
+Question Types
+
+Question Count
+
+Time Limit
+
+Marks
+
+Negative Marks
+
+Randomization Settings
+
+Estimated Available Questions
+
+The user may either
+
+Edit
+
+or
+
+Generate Test.
+
+---
+
+# 6.15 Validation Rules
+
+Before generating a test, the Generator shall verify
+
+• Required selections completed
+
+• Requested question count available
+
+• Valid difficulty distribution
+
+• Valid question types
+
+• Valid metadata
+
+Generation shall not proceed until validation succeeds.
+
+---
+
+# 6.16 Generated Test Package
+
+The Test Generator shall never send the complete Question Bank to the CBT Engine.
+
+Instead, it shall create a temporary Generated Test Package containing only the selected questions.
+
+The Question Bank shall remain unchanged.
+
+---
+
+# 6.17 Design Principle
+
+The Test Generator shall remain independent of
+
+CBT Engine
+
+Result Engine
+
+Analytics Engine
+
+Question Bank Manager
+
+It shall communicate only through the Generated Test Package.
