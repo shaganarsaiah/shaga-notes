@@ -1184,3 +1184,687 @@ Analytics Engine
 Question Bank Manager
 
 It shall communicate only through the Generated Test Package.
+---
+
+# Chapter 7
+# Test Selection & Generation Algorithms
+
+## 7.1 Purpose
+
+The Test Generator shall convert user selections into a Generated Test Package.
+
+The Question Bank shall never be modified during this process.
+
+---
+
+## 7.2 Generation Process
+
+Question Bank Repository
+
+↓
+
+Filter Questions
+
+↓
+
+Validate Availability
+
+↓
+
+Prepare Blueprint
+
+↓
+
+Random Selection
+
+↓
+
+Shuffle Options
+
+↓
+
+Generate Test Package
+
+↓
+
+Launch CBT Engine
+
+---
+
+## 7.3 Filtering Rules
+
+Questions shall be filtered by
+
+• Examination
+
+• Division
+
+• Paper
+
+• Subject
+
+• Topic
+
+• Sub-topic
+
+• Difficulty
+
+• Question Type
+
+• Language
+
+• Tags
+
+---
+
+## 7.4 Validation Rules
+
+Before generation, verify
+
+• Required selections completed
+
+• Questions available
+
+• Blueprint valid
+
+• No invalid metadata
+
+---
+
+## 7.5 Duplicate Prevention
+
+The same question shall never appear twice in the same examination.
+
+---
+
+## 7.6 Randomization
+
+Support
+
+• Random Questions
+
+• Random Options
+
+• Random Subject Order
+
+• Random Topic Order
+
+---
+
+## 7.7 Generated Test Package
+
+The Test Package shall contain only selected questions.
+
+The complete Question Bank shall never be sent to the CBT Engine.
+---
+
+# Chapter 8
+# CBT Engine
+
+## Purpose
+
+Conduct examinations.
+
+The CBT Engine shall never generate question papers.
+
+---
+
+## Responsibilities
+
+• Display Questions
+
+• Timer
+
+• Navigation
+
+• Palette
+
+• Save Progress
+
+• Review
+
+• Resume
+
+• Submit
+
+---
+
+## Restrictions
+
+The CBT Engine shall not
+
+• Edit Questions
+
+• Search Question Banks
+
+• Generate Tests
+
+• Calculate Analytics
+---
+
+# Chapter 9
+# Result Engine
+
+## Responsibilities
+
+• Calculate Marks
+
+• Calculate Negative Marks
+
+• Calculate Percentage
+
+• Determine Pass / Fail
+
+• Generate Result Summary
+
+Future versions may include
+
+• Rank
+
+• Percentile
+
+• Normalization---
+
+# Chapter 10
+# Analytics Engine
+
+## Responsibilities
+
+Generate
+
+• Subject-wise Analysis
+
+• Topic-wise Analysis
+
+• Time Analysis
+
+• Accuracy Analysis
+
+• Weak Areas
+
+• Strong Areas
+
+• Progress Reports
+
+Future
+
+• AI Suggestions
+
+• Adaptive Practice
+
+• Personalized Revision---
+
+# Chapter 11
+# Folder Structure
+
+The project shall maintain a modular folder structure.
+
+Question Banks
+
+Repository
+
+Generator
+
+CBT
+
+Results
+
+Analytics
+
+Documentation
+
+Each module shall remain independent.---
+
+# Chapter 12
+# Security
+
+The system shall support
+
+• Data Validation
+
+• Backup
+
+• Recovery
+
+• Version Control
+
+• Input Validation
+
+Future
+
+• Authentication
+
+• Cloud Security---
+
+# Chapter 13
+# Version Control
+
+All development shall follow
+
+Design
+
+↓
+
+Documentation
+
+↓
+
+Implementation
+
+↓
+
+Testing
+
+↓
+
+Git Commit
+
+↓
+
+Git Push
+
+↓
+
+Backup
+
+↓
+
+Release---
+
+# Chapter 14
+# Future Roadmap
+
+Version 2
+
+Test Generator
+
+Question Bank Manager
+
+Version 3
+
+Analytics Dashboard
+
+Version 4
+
+Cloud Repository
+
+Version 5
+
+AI Question Extraction
+
+Version 6
+
+School Edition
+---
+
+# Chapter 15
+# Design Principles
+
+1. One CBT Engine.
+
+2. One Question Repository.
+
+3. One Test Generator.
+
+4. Metadata-driven architecture.
+
+5. Modular development.
+
+6. Separation of responsibilities.
+
+7. Independent modules.
+
+8. Future-ready architecture.
+
+9. Backward compatibility.
+
+10. Documentation before implementation.
+
+---
+
+# Conclusion
+
+SHAGA TestHub is designed as a scalable, modular and reusable Computer Based Testing platform.
+
+The architecture separates Question Management, Test Generation, Examination, Evaluation and Analytics into independent modules.
+
+This design enables the same CBT Engine to support multiple examination systems while allowing future expansion with minimal architectural changes.---
+
+# Chapter 16
+# User Roles & Permissions
+
+## 16.1 Purpose
+
+The system shall provide role-based access control.
+
+Each user shall have permissions based on assigned roles.
+
+---
+
+## 16.2 Supported Roles
+
+### Administrator
+
+Responsibilities
+
+• Manage entire system
+
+• Create repositories
+
+• Create examinations
+
+• Configure Test Generator
+
+• Manage users
+
+• View reports
+
+• Backup system
+
+---
+
+### Examiner
+
+Responsibilities
+
+• Manage Question Banks
+
+• Generate Tests
+
+• Preview Tests
+
+• Publish Tests
+
+---
+
+### Candidate
+
+Responsibilities
+
+• Generate Practice Tests
+
+• Attempt Tests
+
+• Review Results
+
+• View Analytics
+
+---
+
+## 16.3 Permission Matrix
+
+Administrator
+
+✔ Full Access
+
+Examiner
+
+✔ Question Bank
+
+✔ Test Generator
+
+✔ Reports
+
+Candidate
+
+✔ Test Generator
+
+✔ CBT
+
+✔ Results
+
+No user shall access unauthorized modules.---
+
+# Chapter 17
+# Test Blueprint System
+
+## Purpose
+
+Every examination generated by the Test Generator shall follow a blueprint.
+
+The blueprint defines
+
+• Examination
+
+• Division
+
+• Subjects
+
+• Topics
+
+• Difficulty
+
+• Question Types
+
+• Question Distribution
+
+• Marks
+
+• Time
+
+---
+
+## Blueprint Validation
+
+Before generation
+
+The system shall verify
+
+• Sufficient questions available
+
+• Valid distribution
+
+• Valid metadata
+
+• Duplicate prevention
+
+Generation shall not proceed until validation succeeds.---
+
+# Chapter 18
+# Generated Test Package
+
+## Purpose
+
+The Generated Test Package is a temporary examination created by the Test Generator.
+
+The Question Bank Repository shall remain unchanged.
+
+---
+
+## Contents
+
+The package shall contain
+
+• Test ID
+
+• Generation Date
+
+• Examination
+
+• Division
+
+• Subjects
+
+• Topics
+
+• Selected Questions
+
+• Time Limit
+
+• Marks
+
+• Randomization Information
+
+• Blueprint
+
+• Metadata
+
+---
+
+The Generated Test Package shall be the only input accepted by the CBT Engine.---
+
+# Chapter 19
+# Logging & Audit Trail
+
+The system shall maintain logs for
+
+• Question Creation
+
+• Question Modification
+
+• Test Generation
+
+• Test Attempt
+
+• Result Calculation
+
+• User Login
+
+• Repository Changes
+
+Logs shall assist debugging, auditing and future analytics.---
+
+# Chapter 20
+# Backup & Recovery
+
+The system shall support
+
+• Manual Backup
+
+• Automatic Backup
+
+• Version History
+
+• Repository Restore
+
+• Test Restore
+
+• Recovery after Failure
+
+No Question Bank shall be permanently lost without administrator confirmation.---
+
+# Chapter 21
+# Coding Standards
+
+Development shall follow
+
+• Modular Programming
+
+• Single Responsibility Principle
+
+• Reusable Components
+
+• Metadata-driven Design
+
+• Version Control
+
+• Documentation before Coding
+
+• Git Workflow
+
+• Independent Modules---
+
+# Chapter 22
+# Release Management
+
+Every release shall follow
+
+Planning
+
+↓
+
+Architecture Review
+
+↓
+
+Implementation
+
+↓
+
+Testing
+
+↓
+
+Git Commit
+
+↓
+
+Git Push
+
+↓
+
+Backup
+
+↓
+
+Release
+
+↓
+
+Documentation Update---
+
+# Chapter 23
+# Future Enhancements
+
+Future versions may include
+
+• Cloud Repository
+
+• AI Question Generation
+
+• AI Question Categorization
+
+• AI Difficulty Analysis
+
+• Adaptive Testing
+
+• Online Accounts
+
+• Multi-device Synchronization
+
+• Offline CBT
+
+• Mobile Application
+
+• School Edition
+
+• Institution Edition
+
+• University Edition---
+
+# Chapter 24
+# Final Design Principles
+
+The following principles shall never change.
+
+1. One CBT Engine.
+
+2. One Question Bank Repository.
+
+3. One Test Generator.
+
+4. Metadata-driven Architecture.
+
+5. Modular Design.
+
+6. Independent Modules.
+
+7. Temporary Generated Test Packages.
+
+8. Documentation before Coding.
+
+9. Git-based Development.
+
+10. Future-ready Architecture.
+
+---
+
+# Final Statement
+
+SHAGA TestHub is designed as a scalable, metadata-driven Computer Based Testing platform.
+
+The architecture separates Question Management, Test Generation, Examination, Evaluation and Analytics into independent modules.
+
+This architecture enables unlimited examination generation while maintaining a single reusable CBT Engine.
+
+Future educational systems may be integrated by extending Question Banks rather than modifying the CBT Engine.
