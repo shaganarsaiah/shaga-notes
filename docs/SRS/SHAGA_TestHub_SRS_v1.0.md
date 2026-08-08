@@ -472,3 +472,293 @@ without changing
 Every module shall have only one responsibility.
 
 This principle shall be followed throughout the development of SHAGA TestHub.
+---
+
+# Chapter 4
+# Question Bank Repository
+
+## 4.1 Purpose
+
+The Question Bank Repository (QBR) is the central storage system of SHAGA TestHub.
+
+It stores all examination questions together with their metadata.
+
+The repository shall support:
+
+- Single Subject Tests
+- Multiple Subject Tests
+- Topic-wise Tests
+- Sub-topic Tests
+- Lesson-wise Tests
+- Paper-wise Tests
+- Grand Tests
+- Mock Tests
+- Practice Tests
+- Future School Examinations
+
+The repository shall be independent of the CBT Engine.
+
+---
+
+# 4.2 Design Philosophy
+
+Questions shall never be hard-coded inside the CBT Engine.
+
+The CBT Engine shall only receive a generated examination package from the Test Generator.
+
+This allows unlimited combinations of examinations without modifying the CBT Engine.
+
+---
+
+# 4.3 Repository Hierarchy
+
+Every question shall belong to the following hierarchy.
+
+```
+Examination
+
+    ↓
+
+Division
+
+    ↓
+
+Subject
+
+    ↓
+
+Topic
+
+    ↓
+
+Sub-topic
+
+    ↓
+
+Question
+```
+
+Example
+---
+
+# Chapter 5
+# Question Metadata Specification
+
+## 5.1 Purpose
+
+Every question stored in the Question Bank Repository shall contain structured metadata.
+
+Metadata enables the Test Generator to search, filter, classify, randomize and generate examinations without modifying the CBT Engine.
+
+The metadata model shall remain generic so that it supports competitive examinations as well as future school examinations.
+
+---
+
+# 5.2 Mandatory Metadata Fields
+
+Every question shall contain the following information.
+
+| Field | Description |
+|--------|-------------|
+| Question ID | Unique identifier |
+| Examination | Name of examination |
+| Division | Division / Category |
+| Paper | Paper Name |
+| Subject | Subject Name |
+| Topic | Topic Name |
+| Sub-topic | Sub-topic Name |
+| Lesson | Lesson (optional) |
+| Difficulty | Easy / Moderate / Difficult |
+| Question Type | MCQ / Assertion / Case Study / etc. |
+| Language | English / Telugu / Hindi / etc. |
+| Marks | Positive Marks |
+| Negative Marks | Negative Marks |
+| Estimated Time | Expected solving time |
+| Explanation | Answer Explanation |
+| Correct Answer | Correct Option |
+| Source | Book / PYQ / Faculty / AI |
+| Previous Year | If applicable |
+| Status | Draft / Verified / Published |
+| Version | Question Version |
+
+---
+
+# 5.3 Optional Metadata
+
+Future versions may support
+
+• Bloom's Taxonomy
+
+• Cognitive Level
+
+• Competency
+
+• Learning Outcome
+
+• NEP Mapping
+
+• NCF Mapping
+
+• Teacher Notes
+
+• References
+
+• Video Link
+
+• Image Link
+
+• PDF Link
+
+• Audio Link
+
+• Difficulty Score
+
+• Usage Count
+
+• Average Accuracy
+
+• Last Updated
+
+---
+
+# 5.4 Question Difficulty
+
+Questions shall be classified as
+
+Easy
+
+Moderate
+
+Difficult
+
+The Test Generator shall be capable of generating examinations using any desired distribution.
+
+Example
+
+20 Easy
+
+20 Moderate
+
+10 Difficult
+
+---
+
+# 5.5 Supported Question Types
+
+The repository shall support
+
+• Multiple Choice Questions
+
+• Multiple Correct Answers
+
+• True / False
+
+• Assertion Reason
+
+• Match the Following
+
+• Fill in the Blanks
+
+• One Word Answer
+
+• Case Study
+
+• Passage Based Questions
+
+• Diagram Based Questions
+
+• Image Based Questions
+
+• Audio Based Questions
+
+• Video Based Questions
+
+Additional types may be introduced without changing the CBT Engine.
+
+---
+
+# 5.6 Tags
+
+Each question may contain unlimited tags.
+
+Example
+
+Learning
+
+Thorndike
+
+Educational Psychology
+
+Previous Year
+
+DSC
+
+CTET
+
+Memory
+
+Practice
+
+Revision
+
+Tags improve searching and future AI recommendations.
+
+---
+
+# 5.7 Question Lifecycle
+
+Draft
+
+↓
+
+Reviewed
+
+↓
+
+Verified
+
+↓
+
+Published
+
+↓
+
+Archived
+
+Questions shall never be permanently deleted unless explicitly authorized by the administrator.
+
+---
+
+# 5.8 Version Control
+
+Every question shall maintain its own version number.
+
+Example
+
+Question 145
+
+Version 1.0
+
+↓
+
+Version 1.1
+
+↓
+
+Version 2.0
+
+This enables continuous improvement without losing history.
+
+---
+
+# 5.9 Metadata Philosophy
+
+The Question Metadata shall remain independent of the CBT Engine.
+
+The CBT Engine shall display questions.
+
+The Test Generator shall search questions.
+
+The Repository shall store questions.
+
+Each module shall perform only its assigned responsibility.
